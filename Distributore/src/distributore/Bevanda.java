@@ -1,40 +1,22 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
+
 package distributore;
 
 /**
  *
- * @author fonta
+ * @author Studente
  */
 public class Bevanda {
-    protected String nome;
-    protected String code;
-    protected double costo;
-    protected String descrizione;
-
-    public Bevanda(String nome, String code, double costo, String descrizione) {
+    private String nome;
+    private double costo;
+    
+    public Bevanda(String nome, double costo) {
         this.nome = nome;
-        this.code = code;
         this.costo = costo;
-        this.descrizione = descrizione;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getDescrizione() {
-        return descrizione;
-    }
-
-    public void setDescrizione(String descrizione) {
-        this.descrizione = descrizione;
     }
 
     public String getNome() {
@@ -51,10 +33,5 @@ public class Bevanda {
 
     public void setCosto(double costo) {
         this.costo = costo;
-    }
-
-    @Override
-    public String toString() {
-        return "Bevanda{" + "nome=" + nome + ", code=" + code + ", costo=" + costo + ", descrizione=" + descrizione + '}';
     }
 }
