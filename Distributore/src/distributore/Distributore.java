@@ -1,9 +1,16 @@
-package Distributore;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package distributore;
 
-import java.util.Scanner;
+import java.util.Arrays;
 
+/**
+ *
+ * @author fonta
+ */
 public class Distributore {
-    
     private int capienza;
     private Bevanda coca[];
     private int c = 0;
@@ -29,73 +36,87 @@ public class Distributore {
         thep = new Bevanda[capienza];
     }
 
-    Scanner in = new Scanner(System.in);
-
-    // Metodo che restituisce il totale di lattine nel distributore
-    public int () {
-        int totale = Coca + Fanta + Acqua;
-        return totale;
+    public void riempi() {
+        for (int i=0; i<capienza; i++) {
+            coca[i] = new Bevanda("Coca Cola", "33 cl", 1);
+            fanta[i] = new Bevanda("Fanta", "33 cl", 0.90);
+            acquam[i] = new Bevanda("Acqua Minerale", "0,5 l", 0.50);
+            acquaf[i] = new Bevanda("Acqua Frizzante", "0,5 l", 0.50);
+            thel[i] = new Bevanda("The al limone", "0,5 l", 1.20);
+            thep[i] = new Bevanda("The alla pesca", "0,5 l", 1.20);
+        }
+        c=capienza;
+        f=capienza;
+        am=capienza;
+        af=capienza;
+        tl=capienza;
+        tp=capienza;
     }
 
-    // Metodo che stampa il menù di scelta bibite e relative quantità
-    public void seleziona() {
-        System.out.println("*** ECCO IL DISTRIBUTORE***");
-        System.out.println(" 1 - Coca Cola _ quantità : " + Coca);
-        System.out.println(" 2 - Fanta _ quantità : " + Fanta);
-        System.out.println(" 3 - Acqua _ quantità : " + Acqua);
-    }
-
-    // Metodo per l'acquisto di una bibita scelta
-    public void compra(int a) {
-        System.out.println("Inserisci il gettone : (g)");
-        String g = in.nextLine();
-        if (g.equalsIgnoreCase("g")) {
-            if (a == 1 && Coca > 0) {
-                int temp = Coca;
-                Coca = temp - 1;
-                gettone++;
-            }
-
-            if (a == 2 && Fanta > 0) {
-                int temp = Fanta;
-                Fanta = temp - 1;
-                gettone++;
-            }
-
-            if (a == 3 && Acqua > 0) {
-                int temp = Acqua;
-                Acqua = temp - 1;
-                gettone++;
-            }
-
-            if (a != 1 && a != 2 && a != 3) {
-                System.out.println("Bibita non presente");
-            }
-        } else {
-            System.out.println("Gettone non inserito");
-        }
-    }
-
-    // Metodo per l'aggiunta di nuove bibite nel distributore
-    public void inserisci(int a, int q) {
-        if (a == 1) {
-            int temp = Coca;
-            Coca = temp + q;
-        }
-
-        if (a == 2) {
-            int temp = Fanta;
-            Fanta = temp + q;
-        }
-
-        if (a == 3) {
-            int temp = Acqua;
-            Acqua = temp + q;
-        }
-
-        if (a != 1 && a != 2 && a != 3) {
-            System.out.println("Bibita non presente");
+    public Bevanda eroga(int m) {
+        switch (m) {
+            case 1:
+                if (c!=0) {
+                    c--;
+                    return coca[c];
+                } else {
+                    return null;
+                }
+            case 2:
+                if (f!=0) {
+                    f--;
+                    return fanta[f];
+                } else {
+                    return null;
+                }
+            case 3:
+                if (am!=0) {
+                    am--;
+                    return acquam[am];
+                } else {
+                    return null;
+                }
+            case 4:
+                if (af!=0) {
+                    af--;
+                    return acquaf[af];
+                } else {
+                    return null;
+                }
+            case 5:
+                if (tl!=0) {
+                    tl--;
+                    return thel[tl];
+                } else {
+                    return null;
+                }
+            case 6:
+                if (tp!=0) {
+                    tp--;
+                    return thep[tp];
+                } else {
+                    return null;
+                }
+            default: 
+                return null;
         }
     }
 
+    public int[] inventario() {
+        int[] i= {c, f, am, af, tl, tp};
+        return i;
+    }
+    
+    public Bevanda[] getOp() {
+        Bevanda[] a = {new Bevanda("Coca Cola", "33 cl", 1), new Bevanda("Fanta", "33 cl", 0.90),
+            new Bevanda("Acqua Minerale", "0,5 l", 0.50), new Bevanda("Acqua Frizzante", "0,5 l", 0.50),
+            new Bevanda("The al limone", "0,5 l", 1.20), new Bevanda("The alla pesca", "0,5 l", 1.20)};
+        
+            return a;
+        }
+
+    public int getCapienza() {
+        return capienza;
+    }
+    
 }
